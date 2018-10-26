@@ -24,6 +24,3 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
     ("Mixing Bowl Set", "accessories", 45.63, 78),
     ("Cuisinart Stand Mixer", "appliances", 230, 78),
     ("Spatula", "accessories", 7.50, 132);
-
-
-    

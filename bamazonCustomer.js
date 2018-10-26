@@ -3,6 +3,8 @@ var inquirer = require("inquirer");
 var mysql = require("mysql");
 var Table = require("easy-table");
 
+var customer = require("./bamazon.js");
+
 // variable customer options
 var options = ["View items for sale", "Place an order", "Back to main menu"];
 
@@ -41,10 +43,10 @@ connection.connect(function(err) {
                 order();
                 break;
 
-            // case options[2]:
-            // var greeting = require("")
-            //     greeting();
-            //     break;
+            case options[2]:
+            var greeting = require("")
+                greeting();
+                break;
             }
       });
   };
@@ -166,36 +168,13 @@ function nestedinquirer(answer, data) { // allow multiple choices for order
                 }
             ]).then(function(res) {
 				connection.query("UPDATE products SET stock_quantity = ? WHERE product_name = ?", [stock - res.quantity, name], function(err, results) {
-					if (err) throw err;
-				});
-				updatedept(dept, cost, price, res.quantity);
-				i++;
-				inquiry(index, data1);
-			});
-		}
-		else {
-			console.log("\n-------------------------------------------------\n");
+                    if (err) throw err;
+                    console.log("\n-------------------------------------------------\n");
 			console.log("Thanks for your order! We will fullfill it as soon as possible!")
 			console.log("\n-------------------------------------------------\n");
-			customer();
-		};
+				});
+			});
+		}
 	};
 };
 
-// function updatedept(dept, cost, price, quant) { // update database "departments" when customer orders
-// 	connection.query("SELECT * FROM departments WHERE department_name = ?", [dept], function(err, res) {
-// 		var result = res;
-// 		var newcost = parseFloat(result[0].product_cost) + parseFloat(cost) * parseInt(quant);
-// 		var newsales = parseFloat(result[0].product_sales) + parseFloat(price) * parseInt(quant);
-// 		var newprofit = parseFloat(result[0].total_profit) + (parseFloat(price) - parseFloat(cost)) * parseInt(quant);
-// 		connection.query("UPDATE departments SET product_cost = ? WHERE department_name = ?", [newcost, dept], function(err, resp) {
-// 			if (err) throw err;
-// 		});
-// 		connection.query("UPDATE departments SET product_sales = ? WHERE department_name = ?", [newsales, dept], function(err, resp) {
-// 			if (err) throw err;
-// 		});
-// 		connection.query("UPDATE departments SET total_profit = ? WHERE department_name = ?", [newprofit, dept], function(err, resp) {
-// 			if (err) throw err;
-// 		});
-// 	});
-// };
