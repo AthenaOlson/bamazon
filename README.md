@@ -12,8 +12,6 @@ The customer interface (bamazonCustomer.js) allows the user to display the store
     * Press return, and the app will ask the quantity you would like to order.
     * After placing the order, the application will than you for making a purchase and for visiting the store.
 
-This app has also been deployed to Heroku
-
 # Customer Demo
 https://drive.google.com/file/d/1T3dYauXfDMsifF-Fjh7g-GJZzgN8xoAq/view
 
