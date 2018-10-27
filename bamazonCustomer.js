@@ -161,20 +161,21 @@ function nestedinquirer(answer, data) { // allow multiple choices for order
 					name: "quantity",
 					validate: function(value) {
 						if (!isNaN(value) && value <= stock) {
-							return true;
-						}
-                        return false;
+                            return true;
+                            
+                        }
                     } 
                 }
             ]).then(function(res) {
 				connection.query("UPDATE products SET stock_quantity = ? WHERE product_name = ?", [stock - res.quantity, name], function(err, results) {
                     if (err) throw err;
                     console.log("\n-------------------------------------------------\n");
-			console.log("Thanks for your order! We will fullfill it as soon as possible!")
-			console.log("\n-------------------------------------------------\n");
+			        console.log("Thanks for your order! We will fullfill it as soon as possible!")
+                    console.log("\n-------------------------------------------------\n");
+                    connection.end();
 				});
 			});
-		}
+		} 
 	};
 };
 
