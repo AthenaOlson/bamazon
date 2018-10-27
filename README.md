@@ -26,4 +26,4 @@ https://github.com/AthenaOlson/bamazon
 https://github.com/AthenaOlson
 
 # updated Portfolio
-file:///Users/athenaolson/Homework/Bootstrap-Portfolio/index.html
+https://athenaolson.github.io/Bootstrap-Portfolio/
